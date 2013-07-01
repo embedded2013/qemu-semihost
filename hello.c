@@ -14,7 +14,7 @@ int main(void) {
   int32_t now = *read_counter;
   if (now == 0) {
     printf("No Read Counter detected\n");
-  } else if (now == 10) {
+  } else if (now == 11) {
     printf("Read Counter works as intended\n");
   } else {
     printf("Something is wrong with Read Counter\n");
