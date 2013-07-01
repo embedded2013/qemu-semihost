@@ -1,7 +1,7 @@
 ReadCounter – a trivial device for QEMU
 ==
 
-This example demonstrates how to implement a simple virtual device to QEMU and
+This example demonstrates how to implement a simple virtual device for QEMU and
 access this device from a program compiled for ARM Cortex-M3 architecture.
 
 The device is visible to the user program as a 32-bit memory-mmapped register that
