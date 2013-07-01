@@ -1,5 +1,5 @@
 ReadCounter – a trivial device for QEMU
-==
+-----
 
 This example demonstrates how to implement a simple virtual device for QEMU and
 access this device from a program compiled for ARM Cortex-M3 architecture.
