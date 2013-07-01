@@ -7,8 +7,9 @@ access this device from a program compiled for ARM Cortex-M3 architecture.
 The device is visible to the user program as a 32-bit memory-mmapped register that
 returns the number of times this register has been read.
 
-The primary source to look at is 
-[hw/arm/read_counter.c](https://github.com/krasin/qemu-counter/blob/read_counter/hw/arm/read_counter.c)
+The primary sources to look at are
+[hw/arm/read_counter.c](https://github.com/krasin/qemu-counter/blob/read_counter/hw/arm/read_counter.c) (device)
+and [main.c](https://github.com/krasin/qemu-counter-hello/blob/master/hello.c) (example usage).
 
 To run the example, do the following:
 
