@@ -71,7 +71,8 @@ OK - Read Counter works as intended
 After that you will be able to run it by hand as well:
 
 ```
-$ ./qemu/build/arm-softmmu/qemu-system-arm -cpu cortex-m3 -nographic -monitor null -serial null -semihosting -device read_counter -kernel hello.elf
+$ ./qemu/build/arm-softmmu/qemu-system-arm -cpu cortex-m3 -nographic -monitor null \
+-serial null -semihosting -device read_counter -kernel hello.elf
 This is a test program for QEMU counter device
 See http://github.com/krasin/qemu-counter for more details
 
