@@ -16,7 +16,7 @@ if [ ! -d qemu/build ]; then
   mkdir  build
   cd build
   ../configure --enable-debug --target-list="arm-softmmu"
-  cd ..
+  cd ../..
 fi
 
 # Rebuild QEMU
