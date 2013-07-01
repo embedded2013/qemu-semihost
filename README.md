@@ -7,6 +7,9 @@ access this device from a program compiled for ARM Cortex-M3 architecture.
 The device is visible to the user program as a 32-bit memory-mmapped register that
 returns the number of times this register has been read.
 
+The primary source to look at is 
+[hw/arm/read_counter.c](https://github.com/krasin/qemu-counter/blob/read_counter/hw/arm/read_counter.c)
+
 To run the example, do the following:
 
 ```
@@ -16,7 +19,8 @@ cd qemu-counter-hello
 ```
 
 This script will ensure you have ARM EABI GCC toolchain (and download it, if missing),
-will build a modified QEMU from https://github.com/krasin/qemu-counter, build hello.c and run it
+will build a modified QEMU from https://github.com/krasin/qemu-counter, build
+[hello.c](https://github.com/krasin/qemu-counter-hello/blob/master/hello.c) and run it
 under QEMU.
 
 If not working, you might need to ```sudo apt-get install gcc-multilib make glib2.0-dev libsdl1.2-dev```
