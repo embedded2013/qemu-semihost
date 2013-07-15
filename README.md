@@ -24,7 +24,7 @@ will build a modified QEMU from https://github.com/krasin/qemu-counter, build
 [hello.c](https://github.com/krasin/qemu-counter-hello/blob/master/hello.c) and run it
 under QEMU.
 
-If not working, you might need to ```sudo apt-get install gcc-multilib make glib2.0-dev libsdl1.2-dev dh-autoreconf```
+If not working, you might need to ```sudo apt-get install cmake gcc-multilib make glib2.0-dev libsdl1.2-dev dh-autoreconf```
 
 If working, after a few minutes of waiting, which will take to download all the dependencies and
 to build QEMU, you will hopefully see the following:
