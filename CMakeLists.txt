@@ -6,6 +6,7 @@ include(ExternalProject)
 ExternalProject_Add(qemu
   PREFIX qemu
   GIT_REPOSITORY git@github.com:krasin/qemu-counter.git
+  GIT_TAG read_counter
   CONFIGURE_COMMAND <SOURCE_DIR>/configure --target-list=arm-softmmu
   INSTALL_COMMAND ""
   )
@@ -38,3 +39,13 @@ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS)
 
 add_executable(hello.elf hello.c)
 add_dependencies(hello.elf arm-eabi-toolchain)
+
+enable_testing()
+
+SET(QEMU_EXECUTABLE ${PROJECT_BINARY_DIR}/qemu/src/qemu-build/arm-softmmu/qemu-system-arm)
+
+add_test(qemu_without_counter_device_test ${QEMU_EXECUTABLE} -cpu cortex-m3 -nographic
+  -monitor null -serial null -semihosting -kernel hello.elf)
+
+add_test(qemu_with_counter_device_test ${QEMU_EXECUTABLE} -cpu cortex-m3 -nographic
+  -monitor null -serial null -semihosting -device read_counter -kernel hello.elf)
