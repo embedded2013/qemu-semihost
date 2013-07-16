@@ -38,14 +38,16 @@ SET(CMAKE_C_FLAGS "-g -mcpu=cortex-m3 -mthumb -T generic-m-hosted.ld -std=c99")
 SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS)
 
 add_executable(hello.elf hello.c)
-add_dependencies(hello.elf arm-eabi-toolchain)
-
-enable_testing()
+add_dependencies(hello.elf arm-eabi-toolchain qemu)
 
 SET(QEMU_EXECUTABLE ${PROJECT_BINARY_DIR}/qemu/src/qemu-build/arm-softmmu/qemu-system-arm)
 
-add_test(qemu_without_counter_device_test ${QEMU_EXECUTABLE} -cpu cortex-m3 -nographic
+add_custom_command(TARGET hello.elf
+  COMMENT "Run hello.elf with qemu without counter device"
+  COMMAND ${QEMU_EXECUTABLE} -cpu cortex-m3 -nographic
   -monitor null -serial null -semihosting -kernel hello.elf)
 
-add_test(qemu_with_counter_device_test ${QEMU_EXECUTABLE} -cpu cortex-m3 -nographic
+add_custom_command(TARGET hello.elf
+  COMMENT "Run hello.elf with qemu with counter device"
+  COMMAND ${QEMU_EXECUTABLE} -cpu cortex-m3 -nographic
   -monitor null -serial null -semihosting -device read_counter -kernel hello.elf)
