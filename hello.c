@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <inttypes.h>
 
 #define READ_COUNTER_ADDR 0x40050000
@@ -21,5 +23,15 @@ int main(void)
 	else {
 		printf("ERROR - Something is wrong with Read Counter\n");
 	}
+
+	/* test semihost call: open, read, close */
+	{
+		int fd = open("/etc/hosts", O_RDONLY);
+		char buf[16] = { 0, };
+		int bytesRead = read(fd, buf, 9);
+		printf("read from /etc/hosts: %s\n", buf);
+		close(fd);
+	}
+
 	return 0;
 }
